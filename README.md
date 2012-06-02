@@ -1,4 +1,4 @@
-media-assets
+Examples
 ============
 
-Media Assets For FDT Branding
+Example scripts and files to use with FDT.
