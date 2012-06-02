@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="External Lib Downloader">
+
+	<property file="lib_downloader.properties" />
+		
+	<target name="[SWC] Signals">
+		<mkdir dir="${lib.path}signals"/>
+ 		<exec executable="curl" dir="${lib.path}signals">
+			<arg line="-O -L ${signals.swc}"/>
+		</exec>
+	</target>
+
+	<target name="[SWC] Robotlegs">
+		<mkdir dir="${lib.path}robot_legs"/>
+		<exec executable="curl" dir="${lib.path}robot_legs">
+			<arg line="-O -L ${robotlegs.swc}"/>
+		</exec>
+	</target>
+
+	<target name="[SWC] SwiftSuspenders">
+		<mkdir dir="${lib.path}suspenders"/>
+		<exec executable="curl" dir="${lib.path}suspenders">
+			<arg line="-O -L ${swiftsuspenders.swc}"/>
+		</exec>
+	</target>
+
+	<target name="[SWC] MinimalComps">
+		<mkdir dir="${lib.path}minimalcomps"/>
+		<exec executable="curl" dir="${lib.path}minimalcomps">
+			<arg line="-O -L ${minimalcomps.swc}"/>
+		</exec>
+	</target>
+	
+	<target name="[SWC] Flint Particles">
+		<mkdir dir="${lib.path}flint"/>
+		<exec executable="svn" dir="${lib.path}flint">
+			<arg line="export ${flint2d.swc}"/>
+		</exec>
+		<exec executable="svn" dir="${lib.path}flint">
+			<arg line="export ${flint3d.swc}"/>
+		</exec>
+	</target>
+
+	<target name="[SRC] doob's Stats">
+		<mkdir dir="${lib.path}stats/net/hires/debug"/>
+		<exec executable="curl" dir="${lib.path}stats/net/hires/debug">
+			<arg line="-O -L http://github.com/mrdoob/stats.as/raw/master/src/net/hires/debug/Stats.as"/>
+		</exec>
+	</target>
+
+	<target name="[SRC] swfobject">
+		<mkdir dir="${lib.path}/swfobject"/>
+		<exec executable="svn" dir="${lib.path}/swfobject">
+			<arg line="export http://swfobject.googlecode.com/svn/trunk/swfobject/src/"/>
+		</exec>
+	</target>
+
+	<target name="[SRC] Signals">
+		<mkdir dir="${lib.path}signals"/>
+		<exec executable="curl" dir="${lib.path}signals">
+			<arg line="-O -L http://github.com/robertpenner/as3-signals/zipball/master"/>
+		</exec>
+		<unzip dest="${lib.path}signals" src="${lib.path}signals/master"/>
+		<delete file="${lib.path}signals/master"/>
+	</target>
+
+	<target name="[ZIP] Push Button Profiler">
+		<mkdir dir="${lib.path}push_button_profiler"/>
+		<exec executable="curl" dir="${lib.path}push_button_profiler">
+			<arg line="-O -L ${push.button}"/>
+		</exec>
+		<unzip src="${lib.path}push_button_profiler/PBLabsProfiler.zip" dest="${lib.path}push_button_profiler"/>
+		<delete file="${lib.path}push_button_profiler/PBLabsProfiler.zip"/>
+	</target>
+
+	<!-- http://code.google.com/p/fuelanttasks/wiki/flaTask -->
+	<target name="[ZIP] Fuel Tasks">
+		<mkdir dir="${lib.path}fuel"/>
+		<exec executable="curl" dir="${lib.path}fuel">
+			<arg line="-O -L ${fuel.tasks}"/>
+		</exec>
+		<move tofile="${lib.path}fuel/FuelAntTasks.jar">
+			<fileset file="${lib.path}fuel/FuelAntTasks1.3.zip"/>
+		</move>
+	</target>
+	
+	<target name="[ZIP] Apparat">
+	<!-- Scala is best to be downloaded separatly
+		http://www.scala-lang.org/downloads -->
+		
+	<mkdir dir="${lib.path}apparat/src"/>
+		<exec executable="curl" dir="${lib.path}apparat/src">
+			<arg line="-O -L ${apparat}"/>
+		</exec>
+		<unzip src="${lib.path}apparat/src/apparat.zip" dest="${lib.path}apparat/src"/>
+		<delete file="${lib.path}apparat/src/apparat.zip"/>
+
+		<!-- Download Example -->		
+		
+		<mkdir dir="${lib.path}apparat/example"/>
+		<exec executable="curl" dir="${lib.path}apparat/example">
+			<arg line="-O -L ${apparat.demo}"/>
+		</exec>
+	</target>
+	
+</project>

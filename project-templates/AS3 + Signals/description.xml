@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:projectTemplate xmlns:tns="http://fdt.powerflasher.com/ProjectTemplate"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://fdt.powerflasher.com/ProjectTemplate ../../projectTemplate.xsd">
+	<name>AS3 + Signals</name>
+	<description>Included with this template is the Signals Library - v 0.7.
+
+'Signals are light-weight, strongly-typed AS3 messaging tools. Wire your application with better APIs and less boilerplate than AS3 Events.'
+	
+For more info see the Signals homepage on github:
+http://github.com/robertpenner/as3-signals</description>
+	<projectType>AS 3</projectType>
+	<folders>
+		<sourceFolder>src</sourceFolder>
+		<outputFolder>bin</outputFolder>
+	</folders>
+	<libraries>
+	<swc><path>./libs/as3-signals-v0.7.swc</path></swc>
+	</libraries>
+</tns:projectTemplate>

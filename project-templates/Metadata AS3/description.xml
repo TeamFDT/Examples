@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:projectTemplate xmlns:tns="http://fdt.powerflasher.com/ProjectTemplate"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://fdt.powerflasher.com/ProjectTemplate ../../projectTemplate.xsd">
+	<name>Metadata AS3</name>
+	<version>2.0</version>
+	<projectType>AS 3</projectType>
+	
+	<variables>	
+		<primaryGroup label="Options" description="My Template Variables"  enableIf="true" style="">
+			<group label="Metadata" >
+				<variable name="addMetaData" label="Add Metadata" default="true"
+					type="boolean" />
+				<variable name="metaTheme" label="Size" default="Leaderboard"
+					type="enum('Leaderboard','Full Banner','Half Banner','Full Site')" />
+			</group>
+			<group label="Project Setup">
+			
+			<hyperlink label="Flex 3 Docs" target="http://adobe...." style="hyperlink" />
+				<variable name="addFla" label="Add .fla" default="true"
+					type="boolean" />
+				<variable name="htmlTemplate" label="Include HTML Wrapper"
+					default="false" type="boolean" />
+			</group>
+			<group label="Unit Testing">
+				<variable name="addUnitTesting" label="Add Unit Testing"
+					default="false" type="boolean" />
+				<group label="More..." style="popupButton">
+					<variable name="testFolderName" label="Test Folder Name"
+						default="test-src" type="string" />
+					<variable name="addExample" label="Add Unit Test Example"
+						default="false" type="boolean" />
+					<variable name="addJar" label="Include flexUnitTasks.jar"
+						default="false" type="boolean" />
+						<variable name="myPath" label="label" default="/Users/OSX/_dev/code/greensock-as3/greensock.swc" type="enum('/Users/OSX/_dev/code/greensock-as3/greensock.swc')"/>
+				</group>
+			</group>
+		</primaryGroup>
+	</variables>
+	<expressions>
+		<!-- if metadata -->
+		<map name="bannerWidth">
+			<entry key="Leaderboard" value="'728'" />
+			<entry key="Full Banner" value="'468'" />
+			<entry key="Half Banner" value="'234'" />
+			<entry key="Full Site" value="'800'" />
+		</map>
+		<map name="bannerHeight">
+			<entry key="Leaderboard" value="'90'" />
+			<entry key="Full Banner" value="'60'" />
+			<entry key="Half Banner" value="'60'" />
+			<entry key="Full Site" value="'600'" />
+		</map>
+		<map name="bannerFPS">
+			<entry key="Leaderboard" value="'22'" />
+			<entry key="Full Banner" value="'22'" />
+			<entry key="Half Banner" value="'22'" />
+			<entry key="Full Site" value="'60'" />
+		</map>
+		<expression name="metaDataExp"
+			value="concat('[SWF(backgroundColor=&quot;',0xFFFFFF,'&quot;, frameRate=&quot;',bannerFPS(${metaTheme}),'&quot;, width=&quot;',bannerWidth(${metaTheme}),'&quot;, height=&quot;',bannerHeight(${metaTheme}),'&quot;)]')" />
+		<!-- if metadata -->
+		<expression name="metaData" value="if(${addMetaData},${metaDataExp},'')" />
+		<expression name="metaDataDesc"
+			value="if(${addMetaData},(concat('Metadata: ',${metaDataExp})),'')" />
+		<expression name="sourceFolder" value="src" />
+		<expression name="outputFolder" value="bin" />
+		<expression name="htmlDesc"
+			value="if(${htmlTemplate},'This HTML wrapper will create a simple HTML page with your SWF embedded in it.','')" />
+	</expressions>
+	<description>${testVar}${newline}${newline} This template will create a project named '${projectName}' which contains only the basic libraries to develop and compile a pure AS3 project.${newline}${htmlDesc}${newline}${metaDataDesc}</description>
+	<folders>
+		<sourceFolder>${sourceFolder}</sourceFolder>
+		<outputFolder>${outputFolder}</outputFolder>
+		<sourceFolder if="${addUnitTesting}">${testFolderName}</sourceFolder>
+		<autoLibFolder>libs</autoLibFolder>
+	</folders>	
+	<contentCreation processFileExtensions="as,mxml,xml,launch,html">
+		<!-- Always -->
+		<file src="as/Main.as" dest="src/Main.as" process="true" />
+		<file src="fla/cs5.fla" dest="CS5.fla" if="${addFla}" />
+		<!-- html wrapper -->
+		<folder src="html-wrapper" dest="${outputFolder}" if="${htmlTemplate}"
+			process="true" recursive="true" />
+		<!-- if unit testing -->
+		<file src="unitTesting/flexUnitTasks-4.0.0.jar" dest="script/flexUnitTasks-4.0.0.jar"
+			if="${addJar} &amp;&amp; ${addUnitTesting}" />
+		<file src="as/TestRunner.as" dest="${testFolderName}/TestRunner.as"
+			if="${addExample} &amp;&amp; ${addUnitTesting}" process="true" />
+		<file src="as/SimpleTest.as" dest="${testFolderName}/test/SimpleTest.as"
+			if="${addExample} &amp;&amp; ${addUnitTesting}" />
+		<folder src="unitTesting/swc" dest="libs" recursive="true"
+			if="${addUnitTesting}" />
+		<folder src="${testFolderName}" recursive="true" if="${addUnitTesting}" />
+	</contentCreation>
+</tns:projectTemplate>

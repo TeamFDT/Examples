@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="true" context="xml_new" deleted="false" description="A base for an Ant file with a refernce to an external properties file." enabled="true" name="Ant Build">&lt;?xml version="1.0"?&gt;
+&lt;project name="build" default="default"&gt;
+
+	&lt;!-- properties file --&gt;
+    &lt;property file="build.properties" /&gt;
+
+	&lt;target name="default"&gt;
+	&lt;/target&gt;
+&lt;/project&gt;</template></templates>

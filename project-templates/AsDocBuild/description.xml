@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:projectTemplate xmlns:tns="http://fdt.powerflasher.com/ProjectTemplate"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://fdt.powerflasher.com/ProjectTemplate ../../projectTemplate.xsd">
+	<name>AsDoc Build (FDT4.2)</name>
+	<version>1.5</version>
+	<projectType>AS 3</projectType>
+	<variables>
+		<primaryGroup label="Options">
+			<group label="Property Setup">
+				<variable name="SrcFolder" label="Soruse Folder &#x0d;&#x0a; (You can input AbsolutePath)"
+					default="${FDTProjectPath}/src" type="string" />
+				<variable name="HtmlTitle" label="HTML Title"
+					default="API Document" type="string" />
+				<variable name="MainTitle" label="Main Title"
+					default="API Document" type="string" />
+				<variable name="Footer" label="Footer"
+					default="Copyright" type="string" />
+			</group>
+			
+		</primaryGroup>
+	</variables>
+	<expressions>
+		<expression name="sourceFolder" value="src" />
+		<expression name="outputFolder" value="bin" />
+	</expressions>
+	<description>[AsDoc Build Project Template ]
+ - Template created by "itoz" ( http://www.romatica.com/ )
+ - 2010.10.3 , latest update 2011.2.18
+</description>
+	<linkedResources></linkedResources>
+	<folders>
+		<sourceFolder>${sourceFolder}</sourceFolder>
+		<outputFolder>${outputFolder}</outputFolder>
+		<!-- if unit testing -->
+	</folders>
+	<contentCreation processFileExtensions="as,mxml,xml,launch,html">
+		
+		<!-- Always -->
+		<folder src="ant" dest="ant" process="true" recursive="true" />
+		<folder src="asdoc" dest="asdoc" process="true" recursive="true" />
+		<!-- If HTML Wrapper -->
+
+		
+		
+	</contentCreation>
+</tns:projectTemplate>

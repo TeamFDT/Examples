@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:projectTemplate xmlns:tns="http://fdt.powerflasher.com/ProjectTemplate"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://fdt.powerflasher.com/ProjectTemplate ../../projectTemplate.xsd">
+	<name>AS3</name>
+	<version>2.0</version>
+	<projectType>AS 3</projectType>
+	<variables>
+		<primaryGroup label="Options">
+			<group label="Project Setup">
+				<variable name="htmlTemplate" label="Include HTML Wrapper"
+					default="false" type="boolean" />
+			</group>
+			<group label="Unit Testing">
+				<variable name="addUnitTesting" label="Add Unit Testing"
+					default="false" type="boolean" />
+				<group label="More..." style="popupButton" enableIf="${addUnitTesting}">
+					<variable name="testFolderName" label="Test Folder Name"
+						default="test-src" type="string" />
+					<variable name="addExample" label="Add Unit Test Example"
+						default="true" type="boolean" />
+					<variable name="addJar" label="Include flexUnitTasks.jar"
+						default="false" type="boolean" />
+				</group>
+			</group>
+		</primaryGroup>
+	</variables>
+
+	<expressions>
+		<expression name="number" value="8*2" />
+		<expression name="sourceFolder" value="src" />
+		<expression name="outputFolder" value="bin" />
+		<expression name="htmlDesc"
+			value="if(${htmlTemplate},'This HTML wrapper will create a simple HTML page with your SWF embedded in it.','')" />
+	</expressions>
+
+	<description>${number}This template will create a project named '${projectName}' which contains only the basic libraries to develop and compile a pure AS3 project.${newline}${htmlDesc}</description>
+	<folders>
+		<sourceFolder>${sourceFolder}</sourceFolder>
+		<outputFolder>${outputFolder}</outputFolder>
+		<!-- if unit testing -->
+		<sourceFolder if="${addUnitTesting}">${testFolderName}</sourceFolder>
+		<autoLibFolder>libs</autoLibFolder>
+	</folders>
+
+	<contentCreation processFileExtensions="as,mxml,xml,launch,html">
+
+		<!-- Always -->
+		<file src="as/Main.as" dest="src/Main.as" process="true" />
+
+		<!-- If HTML Wrapper -->
+		<folder src="html-wrapper" dest="${outputFolder}" if="${htmlTemplate}"
+			process="true" recursive="true" />
+
+		<!-- If Unit Testing -->
+		<file src="unitTesting/flexUnitTasks-4.0.0.jar" dest="script/flexUnitTasks-4.0.0.jar"
+			if="${addJar} &amp;&amp; ${addUnitTesting}" />
+		<file src="as/TestRunner.as" dest="${testFolderName}/TestRunner.as"
+			if="${addExample} &amp;&amp; ${addUnitTesting}" process="true" />
+		<file src="as/SimpleTest.as" dest="${testFolderName}/test/SimpleTest.as"
+			if="${addExample} &amp;&amp; ${addUnitTesting}" />
+		<folder src="" />
+		<folder src="unitTesting/swc" dest="libs" recursive="true"
+			if="${addUnitTesting}" />
+		<folder src="${testFolderName}" recursive="true" if="${addUnitTesting}" />
+
+	</contentCreation>
+</tns:projectTemplate>

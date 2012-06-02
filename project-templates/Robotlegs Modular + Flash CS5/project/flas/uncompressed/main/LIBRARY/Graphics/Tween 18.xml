@@ -1,0 +1,60 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Graphics/Tween 18" itemID="4dfef94b-00000c4f" symbolType="graphic" lastModified="1308555595">
+  <timeline>
+    <DOMTimeline name="Tween 18">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4FFF4F" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance name="" referenceID="" selected="true" libraryItemName="Bitmaps/rlpt_background.jpg">
+                  <matrix>
+                    <Matrix tx="-260" ty="-200"/>
+                  </matrix>
+                </DOMBitmapInstance>
+                <DOMGroup selected="true">
+                  <matrix>
+                    <Matrix tx="-260" ty="-200"/>
+                  </matrix>
+                  <members>
+                    <DOMGroup>
+                      <matrix>
+                        <Matrix tx="-260" ty="-200"/>
+                      </matrix>
+                      <members>
+                        <DOMGroup selected="true">
+                          <matrix>
+                            <Matrix tx="-260" ty="-200"/>
+                          </matrix>
+                          <members>
+                            <DOMShape selected="true">
+                              <matrix>
+                                <Matrix tx="-260" ty="-200"/>
+                              </matrix>
+                              <fills>
+                                <FillStyle index="1">
+                                  <SolidColor color="#FFFFFF"/>
+                                </FillStyle>
+                              </fills>
+                              <edges>
+                                <Edge fillStyle1="1" edges="!228 1049S2|4228 1049!4228 1049|4228 7249!4228 7249|228 7249!228 7249|228 1049"/>
+                              </edges>
+                            </DOMShape>
+                          </members>
+                        </DOMGroup>
+                      </members>
+                    </DOMGroup>
+                    <DOMBitmapInstance name="" referenceID="" libraryItemName="Bitmaps/fdt_image.jpg">
+                      <matrix>
+                        <Matrix tx="-243.6" ty="-142.55"/>
+                      </matrix>
+                    </DOMBitmapInstance>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

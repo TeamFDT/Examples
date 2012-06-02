@@ -1,0 +1,39 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Movie Clip/g:loaderDigit" itemID="4c98f26a-00000036" sourceFlashFilepath="..\..\release/site/src/content1.fla" sourceLibraryItemHRef="g:loaderDigit" sourceLastModified="1286931123" lastModified="1308646854">
+  <timeline>
+    <DOMTimeline name="g:loaderDigit">
+      <layers>
+        <DOMLayer name="Layer 5" color="#4FFFFF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 6" color="#808080" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="output_txt" selected="true" left="59.9" width="55.75" height="115.3" includeOutlines="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-82.9" ty="-58"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>0</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" size="100" bitmapSize="2000" face="InfoText-SemiBoldCaps" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

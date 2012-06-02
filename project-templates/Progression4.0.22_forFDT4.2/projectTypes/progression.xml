@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:projectType xmlns:tns="http://fdt.powerflasher.com/ProjectType"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://fdt.powerflasher.com/ProjectType projectType.xsd ">
+	<name>Progression</name>
+	<description>This project type defines a progression project for Flash Player.
+		
+		 </description>
+	<compatibleSdks>
+		<sdk min="3"/>
+	</compatibleSdks>
+	<swcs>
+		<swc>
+			<path>frameworks/libs/player/{playerVersion}/playerglobal.swc</path>
+		</swc>
+		<swc>
+			<path>frameworks/libs/flex.swc</path>
+		</swc>
+	</swcs>
+	<runtime>Flash Player</runtime>
+	<compatiblePlayers>
+		<player default="true">External SWF Viewer</player>
+		<player default="false">Browser</player>
+		<player default="false">Standalone Flash Player</player>
+	</compatiblePlayers>
+	<compilerArguments passClasspath="true" passMainclass="true" passSwcs="true" passRsls="false">
+		<argument>-static-link-runtime-shared-libraries=true</argument>
+		<argument>-target-player={playerVersion}</argument>
+		<argument>-library-path+="{flexSDK}/frameworks/locale/en_US"</argument>
+		<argument>-default-size=550,400</argument>
+		<argument>-define=CONFIG::Debug,true</argument>
+		<argument>-define+=CONFIG::Release,false</argument>
+	</compilerArguments>
+</tns:projectType>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="Progression Project Builder" default="[1]. All Release Build">
+
+	
+	<!-- ============================================================================================
+	
+		                                                           					[ Set Up ]
+		[Set Up JRE] http://www.fdt.jp/?p=193
+		
+	 -->
+	
+	<property name="preloaderSwf.path" 	value="${swfDir}preloader.swf" />			<!--pleroader.swf-->
+	<property name="indexSwf.path" 		value="${swfDir}index.swf" />				<!--index.swf-->
+	
+	<property name="src.dir" 			value="${basedir}/../${sourceFolder}" />	<!--src-->
+	<property name="debug.dir"			value="${basedir}/../${outputFolder}" />	<!--debug folder-->
+	<property name="release.dir"		value="${basedir}/../bin_release" />		<!--release folder-->
+	
+	<property file="ftp.properties" />
+	<property name="release.path"		value="${basedir}/../ant/ProjectRelease" />
+	
+	<!-- ============================================================================================
+	
+		                                                         				  [  Release Build  ]
+	 -->
+	
+	<target name="[1]. All Release Build">
+	
+		<echo message="Start Release Build"></echo>
+		
+		<fdt.loadProjectProperties/>
+		
+		<!--clean up release.dir-->
+		<echo message="Delete Release Folder"></echo>
+		<delete includeemptydirs="true">
+			<fileset dir="${release.dir}" includes="**/*" />
+		</delete>
+		
+		<!--copy debug.dir-->	
+		<echo message="Copy Debug Folder"></echo>
+		<copy todir="${release.dir}">
+			<fileset dir="${debug.dir}"></fileset>
+		</copy>
+		
+		<!--create index.swf-->
+		<fdt.launch.application 
+			projectname			="${FDTProject}" 
+			mainclass			="${src.dir}/${IndexClass}.as"
+		    debug				="false" 
+			target				="${release.dir}/${indexSwf.path}" 
+			startswf			="false"
+			compilerarguments	="-define=CONFIG::Debug,false -define+=CONFIG::Release,true -sp ${release.path} --target-player=${FDTProjectPlayerVersion} -static-link-runtime-shared-libraries=true"
+		/>
+		
+		<!--create preloader.swf-->
+		<fdt.launch.application 
+			projectname			="${FDTProject}" 
+			mainclass			="${src.dir}/${PreloaderClass}.as"
+			debug				="false" 
+			target				="${release.dir}/${preloaderSwf.path}" 
+			startswf			="false"
+			compilerarguments	="-define=CONFIG::Debug,false -define+=CONFIG::Release,true --target-player=${FDTProjectPlayerVersion} -static-link-runtime-shared-libraries=true"
+		/>
+		
+		<!--preview index.html-->
+		<fdt.extSWFViewer.startSWF 
+			file				="${release.dir}/index.html"
+			width				="${swf_width}" 
+			height				="${swf_height}"
+		/>
+	</target>
+	
+	<!-- ============================================================================================
+	
+		                                                          					    [ FTP Upload ]
+	-->
+	<target name="[2] FTP Upload">
+		<ftp server="${ftp.host}"
+			userid="${ftp.user}"
+			password="${ftp.password}"
+				remotedir="${ftp.dir}"
+				port="21"
+				depends="yes" 
+				passive="yes" 	
+				binary="yes"
+				verbose="yes"
+				>
+				<fileset dir="${debug.dir}" />
+			</ftp>
+	</target>
+	
+</project>

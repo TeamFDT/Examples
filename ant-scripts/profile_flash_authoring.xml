@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="true" context="org.eclipse.ant.ui.templateContextType.target" deleted="false" description="Compile a .swf via Flash Authoring and Profile in FDT" enabled="true" name="Profile Flash Professional SWF">&lt;target name="profile.from.flash.professional"&gt;
+	&lt;fdt.flashCompile file="$${basedir}/project.fla" /&gt;
+	&lt;fdt.extSWFViewer.startSWF file="$${basedir}/bin/Main.swf" /&gt;
+	&lt;fdt.startProfiler projectname="$${ant.project.name}" targetswf="$${basedir}/bin/Main.swf"/&gt;
+&lt;/target&gt;</template></templates>

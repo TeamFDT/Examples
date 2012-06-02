@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:projectTemplate xmlns:tns="http://fdt.powerflasher.com/ProjectTemplate"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://fdt.powerflasher.com/ProjectTemplate ../../projectTemplate.xsd">
+	<name>Flex</name>
+	<version>2.0</version>
+	<projectType>${flexVersion}</projectType>
+	<variables>
+		<primaryGroup label="Options">
+			<group label="Project Setup">
+				<variable name="flexVersion" label="Flex Version" default="Flex 4"
+					type="enum('Flex 4','Flex 3')" />
+				<variable name="htmlTemplate" label="Include HTML Wrapper"
+					default="true" type="boolean" />
+			</group>
+			<group label="Unit Testing">
+				<variable name="addUnitTesting" label="Add Unit Testing"
+					default="false" type="boolean" />
+				<group label="More..." style="popupButton" enableIf="${addUnitTesting}">
+					<variable name="testFolderName" label="Test Folder Name"
+						default="test-src" type="string" />
+					<variable name="addExample" label="Add Example" default="true"
+						type="boolean" />
+					<variable name="addJar" label="Include flexUnitTasks.jar"
+						default="false" type="boolean" />
+				</group>
+			</group>
+		</primaryGroup>
+	</variables>
+	<description>This template will create a Flex project named '${projectName}' and include all necessary libraries for ${flexVersion} development.${newline}${htmlDesc}</description>
+	<expressions>
+		<expression name="isFlex3" value="${flexVersion} == 'Flex 3'" />
+		<expression name="isFlex4" value="${flexVersion} == 'Flex 4'" />
+		<expression name="htmlDesc"
+			value="if(${htmlTemplate},'This HTML wrapper will create a simple HTML page with your application embedded in it.','')" />
+	</expressions>
+	<folders>
+		<sourceFolder>src</sourceFolder>
+		<outputFolder>bin</outputFolder>
+		<!-- if unit testing -->
+		<sourceFolder if="${addUnitTesting}">${testFolderName}</sourceFolder>
+		<autoLibFolder>libs</autoLibFolder>
+	</folders>
+	<contentCreation processFileExtensions="as,mxml,xml,launch,html">
+		
+		<!-- Flex Version -->
+		<file src="mxml/Halo.mxml" dest="src/Main.mxml" if="${flexVersion} == 'Flex 3'" />
+		<file src="mxml/Spark.mxml" dest="src/Main.mxml" if="${flexVersion} == 'Flex 4'" />
+		
+		<!-- HTML Wrapper -->
+		<folder src="html-wrapper" dest="bin" process="true" recursive="true" if="${htmlTemplate}" />
+		
+		<!-- If Unit Testing -->
+		<file src="mxml/HaloRunner.mxml" dest="${testFolderName}/TestRunner.mxml"
+			if="(${addUnitTesting} &amp;&amp; ${addExample}) &amp;&amp; (${flexVersion} == 'Flex 3')" />
+		<file src="mxml/SparkRunner.mxml" dest="${testFolderName}/TestRunner.mxml"
+			if="(${addUnitTesting} &amp;&amp; ${addExample}) &amp;&amp; (${flexVersion} == 'Flex 4')" />
+		<file src="as/SimpleTest.as" dest="${testFolderName}/tests/SimpleTest.as"
+			if="(${addUnitTesting} &amp;&amp; ${addExample})" />
+		<file src="unitTesting/flexUnitTasks-4.0.0.jar" dest="script/flexUnitTasks-4.0.0.jar"
+			if="(${addUnitTesting} &amp;&amp; ${addExample}) &amp;&amp;${addJar}" />
+		<folder src="unitTesting/swc" dest="libs" recursive="true"
+			if="${addUnitTesting}" />
+		<folder src="${testFolderName}" recursive="true" if="${addUnitTesting}" />
+	</contentCreation>
+</tns:projectTemplate>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:projectTemplate xmlns:tns="http://fdt.powerflasher.com/ProjectTemplate"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://fdt.powerflasher.com/ProjectTemplate ../../projectTemplate.xsd">
+	<name>Flash CS5 Project</name>
+	<description>This template includes a Flash CS5 .fla along with a "Main.as" class linked as the Document Class.  You can either use the provided Ant script to switch to Flash Authoring to compile, or switch to Flash Authoring yourself and compile there. </description>
+	<projectType>AS 3</projectType>
+	<folders>
+		<sourceFolder>src</sourceFolder>
+		<outputFolder>bin</outputFolder>
+	</folders>
+</tns:projectTemplate>

@@ -1,0 +1,127 @@
+09/04/2009  SWFAddress 2.4
+-------------------------------------------------------------------------
+- New INTERNAL_CHANGE and EXTERNAL_CHANGE events.
+- Support for parameter arrays.
+- Improved IE8 support.
+- Fixed IE initialization issues.
+- Fixed browser communication issues with AS2/AVM2 on Mac.
+- Fixed URL decoding for AS1 and AS2.
+- Fixed handling of swfobject.createSWF.
+- Workaround for WebKit bug 20355.
+- Frameset support and corresponding sample.
+- All methods dealing with parameters and query strings no longer return 
+  empty strings.
+
+04/29/2009  SWFAddress 2.3
+-------------------------------------------------------------------------
+- New public encodeURI/decodeURI methods for AS1 and AS2.
+- New Unicode sample and improved support for unicode values.
+- Improved detection of ExternalInterface and swfaddress.js availability.
+- Improved fix for Firefox 3/Mac OSX.
+- Improved degradation in uncontrolled cross-domain parent frames.
+- The explicit id attribute of swfobject.embedSWF() is now optional.
+- Simplified browser sniffing.
+- Removed internal eval() statements.
+- Removed support for swfaddress.html.
+- SWFAddress.getParameter() no longer returns an empty string if the 
+  parameter is not available. 
+- The SWFAddress.getTracker() no longer has a default value but the 
+  behavior remains the same.
+- Support for hash fragments in the SEO redirection.
+- MOTW is added to all the static samples.
+
+12/17/2008  SWFAddress 2.2
+-------------------------------------------------------------------------
+- Refactored JavaScript implementation.
+- New SWFAddress.swc AS3 component. 
+- New CS4 based Splash screen sample.
+- New Digg API sample.
+- New up() method for easier deep linking path navigation.
+- New XSS protection that doesn't affect special characters.
+- Support for Internet Explorer 8.
+- Support for custom HTTP status messages in the SEO sample.
+- Improved title handling.
+- Improved unload event handling for IE.
+- Updated Rails sample.
+- Fixed getBaseURL() for AS3.
+- Fixed Safari 2.0-2.0.3 support.
+- Build-in fix for the Firefox 3/Mac OSX blinking effect.
+- Additional onLoad fix for application/xml content type.
+- Fixed optional options parameter for the popup method.
+- Cross platform build script.
+- Various optimizations.
+
+04/09/2008  SWFAddress 2.1
+-------------------------------------------------------------------------
+- New SWFAddressOptimizer class that encapsulates the JavaScript SEO code
+  and improves the HTML degradation of Flash websites.
+- New getPathNames and getBaseURL methods.
+- New Rewriteless sample for SEO support without URL rewriting.
+- New YouTube Player API sample for video deep linking.
+- New SWiSH Max2 sample.
+- Tomcat SEO sample ported to Flex.
+- Enhanced SEO sample.
+- Improved href and popup methods.
+- Safari 3 reload and popup blocker fixes.
+- Deep links validation for XSS vulnerabilities.
+- DOM fix for Firefox.
+- The new Google Analytics tracking is supported out of the box.
+- Strict mode no longer requires a slash at the end of the value.
+- The A2S/AS3 classes are available in the com.asual.swfaddress package.
+- Flex 3 compatibility.
+
+11/16/2007  SWFAddress 2.0
+-------------------------------------------------------------------------
+- Support for multiple Flash movies and Ajax.
+- Event listeners for ActionScript and JavaScript.
+- New SWFAddressEvent class with support for INIT and CHANGE types.
+- New unobtrusive SEO technique.
+- Support for Adobe Flash CS3.
+- Support for Flash Player 7 with the Flash/JavaScript Integration Kit.
+- Support for SWFObject 2.0, UFO and Adobe's Active Content embedding.
+- New strict mode that adds trailing slashes by default.
+- New helper methods for link, window and popup management.
+- New methods for browser history manipulation.
+- Ability to specify a custom tracker function.
+- Ability to configure the script with query parameters.
+- The swfaddress.html is optional and not used by default.
+- Lots of new and improved Flash based samples.
+- Various optimizations and fixes.
+- API docs for ActionScript 3 and JavaScript.
+
+01/31/2007  SWFAddress 1.1
+-------------------------------------------------------------------------
+- Improved SEO rewriting rules and IE support.
+- Transparent page view tracking with Google Analytics.
+- New ActionScript getParameterNames method.
+- Flex 2 sample changed to work with states.
+- Support for named EMBED tag in a typical OBJECT/EMBED combination.
+- Support for rollover statusbar display of deep links, an idea by 
+  Andrey Gorbatov.
+- Safari history is stored in document.location.
+- Example for rewriting of content placed in the domain root.
+- Fixed preloader for the MTASC sample.
+- Fix for degradation in unsupported browsers.
+- Fix for working with the top window location.
+
+11/21/2006  SWFAddress 1.0
+-------------------------------------------------------------------------
+- Improved folder structure.
+- Build procedure based on Apache Ant.
+- Optimized version that utilizes the dojo compressor.
+- Support for GET style parameters with the corresponding getPath, 
+  getQueryString, getParameter methods.
+- SEO support via PHP/mod_rewrite for Apache HTTPD and JSP/UrlRewrite 
+  for Apache Tomcat. It uses values like '/portfolio/' instead of
+  '/portfolio' or '/portfolio/?desc=true' instead of 
+  '/portfolio?desc=true'.
+- Detection of supported browsers.
+- Improved Safari support that relies on a cached form and cookies. 
+  The method is not bulletproof, but will work in the majority of cases.
+- SWFAddress.setValue can be called from JavaScript.
+- Support for manual address changes in IE.
+- Fix for '#' title in IE.
+
+10/23/2006  SWFAddress 1.0 RC
+-------------------------------------------------------------------------
+First official release.

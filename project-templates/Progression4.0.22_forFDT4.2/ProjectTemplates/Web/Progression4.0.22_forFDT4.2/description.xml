@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:projectTemplate xmlns:tns="http://fdt.powerflasher.com/ProjectTemplate"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://fdt.powerflasher.com/ProjectTemplate ../../projectTemplate.xsd">
+	<name>Progression4 Project (FDT4.2)</name>
+	<version>0.1</version>
+	<projectType>Progression</projectType>
+	<variables>
+		<primaryGroup label="Options">
+			<group label="HTML Property Setup" style="popupButton">
+				<variable name="title" label="HTML TITLE"
+						default="Project Title" type="string" />
+				<group label="埋め込みプロパティ :">
+					<variable name="EmbedJS" label="Embed する Javascript を選択" default="progression.js"
+						type="enum('progression.js','swfObject.js')" />
+					<variable name="playerVersion" label="Embed Player Version&#x0d;&#x0a;※ あくまで Embed のバージョンです"
+							default="9" type="enum('9','10','10.1','10.2')" />
+					<variable name="bg_color" label="BackGround Color"
+							default="#869ca7" type="color" />
+				</group>
+				<group label="キーワード、ディスクリプションの設定 :">
+					<variable name="Keywords" label="Keywords" default=""
+						type="string" />
+					<variable name="Discription" label="Discription" default=""
+						type="string" />
+				</group>
+				<group label ="アクセス解析 :">
+					<variable name="UseGA" label="GoogleAnalytics を利用する" default="false"
+						type="boolean"/>
+					<variable name="GoogleAnalyticsID" label="Google Analytics ID"
+						default="UA-" type="string" enableIf="${UseGA}" />
+				</group>
+			</group>
+		
+			<group label="Progression4 Project Setup">
+				<variable name="swf_width" label="SWF width"
+							default="640" type="string" />
+				<variable name="swf_height" label="SWF height"
+							default="480" type="string" />
+				<variable name="PreloaderClass" label="プリローダークラス名"
+						default="Preloader" type = "string" />
+				<variable name="IndexClass" label="メインクラス名"
+						default="Index" type = "string" />		
+				<variable name="swfDir" label="SWF 書き出しディレクトリ &#x0d;&#x0a;※ (空) で root にパブリッシュ"
+						default="commons/swf/" type = "enum('commons/swf/','')"/>
+				
+			</group>
+			
+			
+		</primaryGroup>
+	</variables>
+	<expressions>
+		<map name="jsCssImports" >
+			<entry key="progression.js"
+				value="concat(
+					'&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;commons/styles/progression.css&quot; /&gt;&#x0d;&#x0a;
+					&lt;script type=&quot;text/javascript&quot; src=&quot;commons/scripts/swfobject/swfobject.js&quot;&gt;&lt;/script&gt;&#x0d;&#x0a;
+					&lt;script type=&quot;text/javascript&quot; src=&quot;commons/scripts/swfaddress/swfaddress.js&quot;&gt;&lt;/script&gt;&#x0d;&#x0a;
+					&lt;script type=&quot;text/javascript&quot; src=&quot;commons/scripts/progression.js&quot;&gt;&lt;/script&gt;&#x0d;&#x0a;
+					')" />
+			<entry key="swfObject.js"
+				value="concat(
+					'&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;commons/styles/default.css&quot; /&gt;&#x0d;&#x0a;
+					&lt;script type=&quot;text/javascript&quot; src=&quot;commons/scripts/swfobject/swfobject.js&quot;&gt;&lt;/script&gt;&#x0d;&#x0a;
+					&lt;script type=&quot;text/javascript&quot; src=&quot;commons/scripts/swfaddress/swfaddress.js&quot;&gt;&lt;/script&gt;&#x0d;&#x0a;
+					')" />
+		</map>
+		<expression name="JS_CSS_Imports" value = "jsCssImports(${EmbedJS})" />
+		<map name="jsType" >	
+			<entry key="progression.js" 	
+		  		value="concat(
+				'progression.embedSWF( {&#x0d;&#x0a;',
+				'        version		: &quot;'  ,   ${playerVersion}  ,  '&quot;&#44;&#x0d;&#x0a;',
+				'        url			: &quot;'  ,   ${swfDir}  ,  'preloader.swf&quot;&#44;&#x0d;&#x0a;',
+				'        width		: &quot;'  ,   ${swf_width}   ,  '&quot;&#44;&#x0d;&#x0a;',
+				'        height		: &quot;'  ,   ${swf_height}  ,  '&quot;&#44;&#x0d;&#x0a;',
+				'        bgcolor		: &quot;'  ,   ${bg_color}   ,  '&quot;&#44;&#x0d;&#x0a;',
+				'        halign		: &quot;center&quot;&#44;&#x0d;&#x0a;',
+				'        valign		: &quot;middle&quot;&#44;&#x0d;&#x0a;',
+				'        hscale		: &quot;window&quot;&#44;&#x0d;&#x0a;',
+				'        vscale		: &quot;window&quot;&#44;&#x0d;&#x0a;',
+				'        params		: {}&#44;&#x0d;&#x0a;',
+				'        attributes	: {}&#44;&#x0d;&#x0a;',
+				'        flashvars	: {}&#x0d;&#x0a;',
+				'        } );'
+		  	) " />
+		  <entry key="swfObject.js"
+				value="concat(
+				'var flashvars={};&#x0d;&#x0a;',
+				'        var params = {bgcolor:&quot;',${bg_color},'&quot;};&#x0d;&#x0a;',
+				'        var attributes = {id:&quot;content&quot;,name:&quot;content&quot;};&#x0d;&#x0a;',
+				'        swfobject.embedSWF(&quot;',${swfDir},'preloader.swf&quot;&#44;&#x0d;&#x0a; ',
+				'                    &quot;content&quot;&#44;&#x0d;&#x0a; ',
+				'                    &quot;',${swf_width},'&quot;&#44;&#x0d;&#x0a; ',
+				'                    &quot;',${swf_height},'&quot;&#44;&#x0d;&#x0a; ', 
+				'                    &quot;',${playerVersion},'&quot;&#44;&#x0d;&#x0a; ',
+				'                    &quot;&quot;&#44;&#x0d;&#x0a; ', 
+				'                    flashvars&#44;&#x0d;&#x0a; ',
+				'                    params&#44;&#x0d;&#x0a; ', 
+				'                    attributes);'
+			)" />
+		</map>
+		<expression name="embedJS" value="jsType(${EmbedJS})" />
+		<expression name="GAScript_HEAD" value="if(${UseGA},
+			concat('&lt;script type=&quot;text/javascript&quot;&gt;&#x0d;&#x0a;
+				var gaJsHost = ((&quot;https:&quot; == document.location.protocol) ? &quot;https://ssl.&quot; : &quot;http://www.&quot;);&#x0d;&#x0a;
+				document.write(unescape(&quot;%3Cscript src='
+			),
+			'&lt;&#33;--')"  />
+		<expression name="GAScript_HOST" value="if(${UseGA},
+			concat('&quot; + gaJsHost + &quot;google-analytics.com/ga.js'),
+			'')"  />
+		<expression name="GAScript_TYPE" value="if(${UseGA},
+			concat(' type='),
+			'')"  />
+		<expression name="GAScript_TEXTJS" value="if(${UseGA},
+			concat('text/javascript'
+			),
+			'')"  />
+		<expression name="GAScript_END" value="if(${UseGA},
+			concat('%3E%3C/script%3E&quot;));&#x0d;&#x0a;
+				&lt;/script&gt;&#x0d;&#x0a;&#x0d;&#x0a;
+				&lt;script type=&quot;text/javascript&quot;&gt;&#x0d;&#x0a;
+				try {var pageTracker = _gat._getTracker(&quot;',${GoogleAnalyticsID},'&quot;);&#x0d;&#x0a;
+				pageTracker._setDomainName(&quot;none&quot;);&#x0d;&#x0a;
+				pageTracker._setAllowLinker(true);&#x0d;&#x0a;
+			} catch(err) {}&lt;/script&gt;&#x0d;&#x0a;'
+			),
+			'--&gt;')"  />
+		<expression name="sourceFolder" value="src" />
+		<expression name="outputFolder" value="bin_debug" />
+	</expressions>
+	<description>
+[ Progression 4.0.22 Project Template (FDT4.2) ]
+ - Template created by "itoz" ( http://www.romatica.com/ ) 
+ - http://progression.jp/
+ - http://fdt.jp/
+	</description>
+	
+	<folders>
+		<sourceFolder>${sourceFolder}</sourceFolder>
+		<outputFolder>${outputFolder}</outputFolder>
+		<autoLibFolder>libs</autoLibFolder>
+	</folders>
+	
+	<contentCreation processFileExtensions="as,xml,launch,html,swf" >
+		<!-- Always -->
+		<file src="as/Preloader.as" dest="src/${PreloaderClass}.as"  />
+		<file src="as/Index.as" dest="src/${IndexClass}.as" process="true" />
+		<file src="as/IndexScene.as" dest="src/IndexScene.as" process="true" />
+		<file src="libs/Progression4.swc" dest="libs/Progression4.swc" process="true" />
+		<folder src="html-templates" dest="${outputFolder}" process="true" />
+		<file src="index.swf" dest="${outputFolder}/${swfDir}/index.swf" process="true" />
+		<folder src="launch" dest=".settings/launch" process="true" />
+		<folder dest="bin_release" process="true" />
+		<folder src="ant" dest="ant" process="true" />
+		<!-- If HTML Wrapper -->
+		<!-- If Unit Testing -->
+	</contentCreation>
+</tns:projectTemplate>

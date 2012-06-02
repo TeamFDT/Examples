@@ -1,0 +1,24 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Graphics/Tween 7" itemID="4dfe42b3-00000433" symbolType="graphic" lastModified="1308508851">
+  <timeline>
+    <DOMTimeline name="Tween 7">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4FFF4F" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance name="" referenceID="" selected="true" libraryItemName="Bitmaps/fdt4_logo.png">
+                  <matrix>
+                    <Matrix a="0.433013916015625" d="0.433013916015625" tx="-75.75" ty="-31.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="175.05" y="73"/>
+                  </transformationPoint>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<project name="Flash CS5 Project" default="compile">
+
+	<!-- properties file - if you have one. Otherwise it will just be ignored.-->
+	<property file="build.properties" />
+
+	<!-- Remember to set this Ant file to 'Run in same JRE as workspace'. Otherwise you'll get the error:
+		'Problem: failed to create task or type fdt.flashCompile'
+	    Check out our wiki for more info: http://fdt.powerflasher.com/docs/FDT_and_Ant_Tutorial-->
+	<!-- Also make sure that the path to Flash Authoring has been set via Preferences>FDT>Tools>Flash -->
+	<target name="compile">
+		<fdt.flashCompile file="${basedir}/project.fla" />
+	</target>
+</project>

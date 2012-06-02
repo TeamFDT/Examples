@@ -1,0 +1,32 @@
+﻿@charset "utf-8";
+
+#content {
+	margin		:20px 20px;
+	}
+
+#content * {
+	line-height	:150%;
+	}
+
+#content #flashcontent {
+	color       :#666666;
+	font-size   :80%;
+	text-align  :center;
+	padding     :10px 30px;
+	border      :10px #EEEEEE solid;
+	background  :#FFFFFF;
+	}
+#content #flashcontent h1,
+#content #flashcontent h2 {
+	color       :#333333;
+	}
+#content #flashcontent img {
+	border      :0;
+	}
+#content #flashcontent p,
+#content #flashcontent ul {
+	text-align  :left;
+	}
+#content #flashcontent p.appendix {
+	text-align  :center;
+	}

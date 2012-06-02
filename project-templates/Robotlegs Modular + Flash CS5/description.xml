@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:projectTemplate xmlns:tns="http://fdt.powerflasher.com/ProjectTemplate"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://fdt.powerflasher.com/ProjectTemplate ../../projectTemplate.xsd">
+	<name>Robotlegs Modular + Flash CS5</name>
+	<version>0.2</version>
+	<description>The project "${projectName}" will be created with the following package structure "${packageStructure}". This project will create two Flash Professional XFL files "loader and main" with MovieClips linked to the proper classes to start a basic Robotlegs Modular + Flash CS5 application.
+	</description>
+	<projectType>AS 3</projectType>
+	<variables>
+		<primaryGroup label= "TemplateOptions">
+			<variable name= "packageStructure" label= "Set Your package structure. e.g. com.mysite.myproject" default= "com.swfgeek.modular" type= "string"/>
+		</primaryGroup>	
+	</variables>
+	<expressions>
+		<expression name="sourceFolder" value="'src'" />
+		<expression name="outputFolder" value="'bin'" />
+		<expression name="addPackageStructure"
+		 	value="replaceRegex(${packageStructure}, '([.]+)', '/')" />
+		<expression name="fileName"
+			value="replaceRegex(${postFileName}, '(^\d+)', '')" />
+	</expressions>
+	<folders>
+		<sourceFolder>${sourceFolder}</sourceFolder>
+		<outputFolder>${outputFolder}</outputFolder>
+		<autoLibFolder>libs</autoLibFolder>
+	</folders>
+	<contentCreation processFileExtensions = "as,mxml,xml,xfl">
+		<file src= "as/MainApplication.as" dest= "${sourceFolder}/MainApplication.as"/>
+		<file src= "as/AppLoader.as" dest= "${sourceFolder}/AppLoader.as"/>
+		<folder src= "as/modules" dest= "${sourceFolder}/${addPackageStructure}/modules"/>
+		<folder src= "as/org" dest= "${sourceFolder}/org/"/>
+		<folder src="flas/uncompressed" dest="xfl"
+			process="true" recursive="true" />
+		<folder src= "libs" dest= "libs" recursive= "true"/>
+	</contentCreation>
+</tns:projectTemplate>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:projectTemplate xmlns:tns="http://fdt.powerflasher.com/ProjectTemplate"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://fdt.powerflasher.com/ProjectTemplate ../../projectTemplate.xsd">
+	<name>PushButton Engine AS3</name>
+	<version>2.0</version>
+	<projectType>AS 3</projectType>
+	<variables>
+		<primaryGroup label="Options">
+			<variable name="addSample" label="Add Sample Project" type="boolean" default="true"></variable>
+			<variable name="s1" label="Choose a Lesson" enableIf="${addSample}"
+					type="enum('Lesson 1: Adding a simple shape', 'Lesson 2: Adding Control with a Custom Component', 'Lesson 3: Keyboard Input for Player Control', 'Lesson 4: Using and Embedding Images')" style="radio" default="Lesson 1: Adding a simple shape"/>
+		</primaryGroup>
+	</variables>
+	
+	<expressions>
+		<expression name="sourceFolder" value="src" />
+		<expression name="outputFolder" value="bin" />
+		<expression name="l1Selected" value="${s1} == 'Lesson 1: Adding a simple shape' &amp;&amp; ${addSample}" />
+		<expression name="l1SelectedText" value="if(${l1Selected},'Lesson 1 shows you how to create a simple shape.','')" />
+		<expression name="l2Selected" value="${s1} == 'Lesson 2: Adding Control with a Custom Component' &amp;&amp; ${addSample}" />
+		<expression name="l2SelectedText" value="if(${l2Selected},'Lesson 2 shows you how to move a shape with a custom component.','')" />
+		<expression name="l3Selected" value="${s1} == 'Lesson 3: Keyboard Input for Player Control' &amp;&amp; ${addSample}" />
+		<expression name="l3SelectedText" value="if(${l3Selected},'Lesson 3 shows you how to extend the control component to respond to keyboard input.','')" />
+		<expression name="l4Selected" value="${s1} == 'Lesson 4: Using and Embedding Images' &amp;&amp; ${addSample}" />
+		<expression name="l4SelectedText" value="if(${l4Selected},'Lesson 4 shows you how to embed and display graphics assets.','')" />
+	</expressions>
+	
+	<description>This template will create a PushButton Engine project named '${projectName}' which contains the PBE library.${newline}${l1SelectedText}${l2SelectedText}${l3SelectedText}${l4SelectedText}</description>
+	<linkedResources></linkedResources>
+	
+	<folders>
+		<sourceFolder>${sourceFolder}</sourceFolder>
+		<outputFolder>${outputFolder}</outputFolder>
+		<autoLibFolder>libs</autoLibFolder>
+	</folders>
+	
+	<contentCreation processFileExtensions="as,mxml,xml,launch,html">
+		
+		<!-- Always -->
+		<folder src="swc" dest="libs" recursive="true"/>
+		
+		<!-- If lesson 1 -->
+		<folder src="lesson1" dest="src" process="true" if="${l1Selected}"/>
+		<!-- If lesson 2 -->
+		<folder src="lesson2" dest="src" process="true" if="${l2Selected}"/>
+		<!-- If lesson 3 -->
+		<folder src="lesson3" dest="src" process="true" if="${l3Selected}"/>
+		<!-- If lesson 4 -->
+		<folder src="lesson4" dest="src" process="true" if="${l4Selected}"/>
+		<folder src="lesson4assets" dest="assets" if="${l4Selected}"
+			process="true" recursive="true" />
+
+		
+	</contentCreation>
+</tns:projectTemplate>

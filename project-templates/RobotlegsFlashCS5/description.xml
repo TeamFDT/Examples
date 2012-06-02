@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:projectTemplate xmlns:tns="http://fdt.powerflasher.com/ProjectTemplate"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://fdt.powerflasher.com/ProjectTemplate ../../projectTemplate.xsd">
+	<name>Robotlegs-FlashCS5 Project</name>
+	<description>This template contains the basic classes, flas, libraries and folder structure to develop and compile a Flash CS5 - Robotlegs AS3 project.</description>
+	<projectType>AS 3</projectType>
+	<compatibleSdks>min="3"</compatibleSdks>
+	<folders>
+		<sourceFolder>src/classes</sourceFolder>
+		<outputFolder>bin</outputFolder>
+	</folders>
+	<libraries>
+		<swc>
+			<path>lib/robotlegs-framework-v1.3.0.swc</path>
+			<asDoc>http://api.robotlegs.org/index.html</asDoc>
+			<source></source>
+		</swc>
+		<swc>
+			<path>lib/greensock.swc</path>
+			<asDoc>http://www.greensock.com/as/docs/tween/index.html</asDoc>
+			<source></source>
+		</swc>
+		<swc>
+			<path>lib/GrupoW.swc</path>
+			<asDoc></asDoc>
+			<source></source>
+		</swc>
+	</libraries>
+</tns:projectTemplate>

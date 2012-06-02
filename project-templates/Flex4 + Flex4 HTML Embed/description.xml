@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:projectTemplate xmlns:tns="http://fdt.powerflasher.com/ProjectTemplate"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://fdt.powerflasher.com/ProjectTemplate ../../projectTemplate.xsd">
+	<name>Flex4 + Flex4 HTML Embed</name>
+	<description>This template includes the HTML wrapper that is shipped with the Flex 4 SDK.
+		 
+To get started:
+1. Modify the 'template-build.properties' file to match your project settings.
+2. Right click on 'template-build.xml' and select 'Run As>Ant Build'.
+
+After that, just have your launcher point to the generated .html file and set your browser as the Viewer. For more info and a video tutorial go to: http://fdt.powerflasher.com/blog/2010/03/fdt-html-template/
+</description>
+	<projectType>Flex 4</projectType>
+	<folders>
+		<sourceFolder>src</sourceFolder>
+		<outputFolder>bin</outputFolder>
+	</folders>
+</tns:projectTemplate>

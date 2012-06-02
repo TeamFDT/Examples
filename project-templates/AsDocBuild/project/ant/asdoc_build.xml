@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ASDoc Build ${MainTitle}" default="asdoc">
+
+	<!--  ASDOC TagList   http://livedocs.adobe.com/flex/3_jp/html/help.html?content=asdoc_6.html-->
+	<!--  ASDoc Option    http://www.adobe.com/livedocs/flex/3_jp/html/help.html?content=asdoc_9.html-->
+
+	<target name="asdoc">
+		<fdt.loadProjectProperties/>
+		<echo message="${FDTProjectPath}" />
+		<echo message="${FDTProjectSdkPath}" />
+
+		<delete includeemptydirs="true">
+			<fileset dir="${FDTProjectPath}/asdoc" includes="**/*" />
+		</delete>
+		<exec executable="${FDTProjectSdkPath}/bin/asdoc">
+			<arg line="-doc-sources ${SrcFolder}" />	<!-- src folder -->
+			<arg line="-output ${FDTProjectPath}/asdoc" />		<!-- output folder -->
+			<arg line="-window-title '${HtmlTitle}'" />			<!-- HTML title -->
+			<arg line="-main-title '${MainTitle}'" />			<!-- title -->
+			<arg line="-footer '${Footer}'" />					<!-- copyright -->	
+			<!-- <arg line="-library-path '${FDTProjectPath}/libs'" /> 	swc-->
+		</exec>
+	</target>
+
+</project>

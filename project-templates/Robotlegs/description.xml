@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:projectTemplate xmlns:tns="http://fdt.powerflasher.com/ProjectTemplate"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://fdt.powerflasher.com/ProjectTemplate ../../projectTemplate.xsd">
+	<name>Robotlegs</name>
+	<version>1.0</version>
+	<projectType>AS 3</projectType>
+	<variables>
+		<primaryGroup label="Options">
+			<group label="Package Name">
+				<variable name="clientFolderName" label="Client Name"
+					default="clientname" type="string" />
+				<variable name="projectFolderName" label="Project Name"
+					default="projectname" type="string" />
+			</group>
+		</primaryGroup>
+	</variables>
+	<expressions>
+		<expression name="sourceFolder" value="src" />
+		<expression name="outputFolder" value="bin" />
+	</expressions>
+	<description>This template will create a project named '${projectName}' which contains only the basic classes and libraries to start a Robotlegs AS3 project.${newline}</description>
+	<linkedResources></linkedResources>
+	<folders>
+		<sourceFolder>${sourceFolder}</sourceFolder>
+		<!--sourceFolder>${sourceFolder}/com/${clientFolderName}/${projectFolderName}/model</sourceFolder>
+		<sourceFolder>${sourceFolder}/com/${clientFolderName}/${projectFolderName}/view</sourceFolder>
+		<sourceFolder>${sourceFolder}/com/${clientFolderName}/${projectFolderName}/controller</sourceFolder>
+		<sourceFolder>${sourceFolder}/com/${clientFolderName}/${projectFolderName}/events</sourceFolder-->
+		<outputFolder>${outputFolder}</outputFolder>
+		<autoLibFolder>libs</autoLibFolder>
+	</folders>
+	<contentCreation processFileExtensions="as,mxml,xml,launch,html">
+		
+		<!-- Always -->
+		<file src="com/template/Main.as" dest="${sourceFolder}/com/${clientFolderName}/${projectFolderName}/Main.as" process="true" />
+		<file src="com/template/SiteContext.as" dest="${sourceFolder}/com/${clientFolderName}/${projectFolderName}/SiteContext.as" process="true" />
+		<file src="com/template/controller/CreateMediatorsCommand.as" dest="${sourceFolder}/com/${clientFolderName}/${projectFolderName}/controller/CreateMediatorsCommand.as" process="true" />
+		<file src="com/template/controller/StartupCommand.as" dest="${sourceFolder}/com/${clientFolderName}/${projectFolderName}/controller/StartupCommand.as" process="true" />
+		<file src="com/template/events/SiteEvent.as" dest="${sourceFolder}/com/${clientFolderName}/${projectFolderName}/events/SiteEvent.as" process="true" />
+		<file src="com/template/model/ApplicationModel.as" dest="${sourceFolder}/com/${clientFolderName}/${projectFolderName}/model/ApplicationModel.as" process="true" />
+		<file src="com/template/view/SampleMediator.as" dest="${sourceFolder}/com/${clientFolderName}/${projectFolderName}/view/SampleMediator.as" process="true" />
+		<file src="com/template/view/components/SampleView.as" dest="${sourceFolder}/com/${clientFolderName}/${projectFolderName}/view/components/SampleView.as" process="true" />
+		
+		<file src="libs/robotlegs-framework-v1.3.0.swc" dest="libs/robotlegs-framework-v1.3.0.swc" />
+	</contentCreation>
+</tns:projectTemplate>

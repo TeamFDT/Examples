@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:projectTemplate xmlns:tns="http://fdt.powerflasher.com/ProjectTemplate"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://fdt.powerflasher.com/ProjectTemplate ../../projectTemplate.xsd">
+	<name>AS3 + Minimal Comps</name>
+	<description>Included with this template is the Minimal Comps Library - v 0.9.5.
+
+'MinimalComps are a set of minimal user interface components for use in ActionScript 3.0 based projects.'
+	
+For more info see the Minimal Comps homepage:
+http://www.minimalcomps.com/</description>
+	<projectType>AS 3</projectType>
+	<folders>
+		<sourceFolder>src</sourceFolder>
+		<outputFolder>bin</outputFolder>
+	</folders>
+	<libraries>
+	<swc><path>./libs/MinimalComps_0_9_5.swc</path></swc>
+	</libraries>
+</tns:projectTemplate>

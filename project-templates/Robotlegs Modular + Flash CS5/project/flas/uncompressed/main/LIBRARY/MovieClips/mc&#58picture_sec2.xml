@@ -1,0 +1,52 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="MovieClips/mc:picture_sec2" itemID="4dff04ba-00000ceb" sourceLibraryItemHRef="Symbol 1" lastModified="1308594944">
+  <timeline>
+    <DOMTimeline name="mc:picture_sec2">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4FFF4F" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMGroup selected="true">
+                  <members>
+                    <DOMGroup>
+                      <matrix>
+                        <Matrix a="0.975006103515625" d="0.983871459960938"/>
+                      </matrix>
+                      <members>
+                        <DOMGroup selected="true">
+                          <matrix>
+                            <Matrix a="0.975006103515625" d="0.983871459960938"/>
+                          </matrix>
+                          <members>
+                            <DOMShape selected="true">
+                              <matrix>
+                                <Matrix a="0.975006103515625" d="0.983871459960938"/>
+                              </matrix>
+                              <fills>
+                                <FillStyle index="1">
+                                  <SolidColor color="#FFFFFF"/>
+                                </FillStyle>
+                              </fills>
+                              <edges>
+                                <Edge fillStyle1="1" edges="!4000 6200S2|0 6200!0 6200|0 0!0 0|4000 0!4000 0|4000 6200"/>
+                              </edges>
+                            </DOMShape>
+                          </members>
+                        </DOMGroup>
+                      </members>
+                    </DOMGroup>
+                    <DOMBitmapInstance name="" referenceID="" libraryItemName="Bitmaps/robotlegs_image.jpg">
+                      <matrix>
+                        <Matrix tx="2.5" ty="2.5"/>
+                      </matrix>
+                    </DOMBitmapInstance>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

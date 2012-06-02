@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:projectTemplate xmlns:tns="http://fdt.powerflasher.com/ProjectTemplate"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://fdt.powerflasher.com/ProjectTemplate ../../projectTemplate.xsd">
+	<name>Flash Professional</name>
+	<version>2.0</version>
+	<description>The project "${projectName}" will be created with a ${flashVersion} file linked to the class 'Main'. This project is for developers who like to code in FDT but compile from Flash Professional.</description>
+	<projectType>AS 3</projectType>
+
+	<variables>
+		<primaryGroup label="Template Options">
+			<variable name="flashVersion" label="Flash Professional Version"
+				default="XFL" type="enum('XFL','CS5','CS4')" />
+			<group label="Unit Testing">
+				<variable name="enableUnitTesting" label="Add Unit Testing"
+					default="false" type="boolean" />
+				<group label="More..." style="popupButton" enableIf="${enableUnitTesting}">
+					<variable name="addUnitTestExamples" label="Add Unit Testing Example"
+						default="true" type="boolean" />
+					<variable name="addJar" label="Include flexUnitTasks.jar"
+						default="false" type="boolean" />
+				</group>
+			</group>
+		</primaryGroup>
+	</variables>
+
+	<expressions>
+		<expression name="unitTestExamples"
+			value="${enableUnitTesting} &amp;&amp; ${addUnitTestExamples}" />
+	</expressions>
+
+	<folders>
+		<sourceFolder>src</sourceFolder>
+		<outputFolder>bin</outputFolder>
+		<!--If Unit Testing -->
+		<sourceFolder if="${enableUnitTesting}">test-src</sourceFolder>
+		<autoLibFolder>libs</autoLibFolder>
+	</folders>
+	<contentCreation processFileExtensions="as,mxml,xml,xfl">
+		
+		<!-- Always -->
+		<file src="as/Main.as" dest="src/Main.as" />
+		
+		<!-- Determine .fla version -->
+		<file src="flas/cs5.fla" dest="${projectName}.fla" if="${flashVersion} == 'CS5'" />
+		<file src="flas/cs4.fla" dest="${projectName}.fla" if="${flashVersion} == 'CS4'" />
+		<folder src="flas/uncompressed" dest="${projectName}" if="${flashVersion} == 'XFL'"
+			process="true" recursive="true" />
+		
+		<!--If Unit Testing -->
+		<folder src="libs" recursive="true" if="${enableUnitTesting}" />
+		<file src="unitTesting/flexUnitTasks-4.0.0.jar" dest="script/flexUnitTasks-4.0.0.jar"
+			if="${addJar} == true &amp;&amp; ${enableUnitTesting}" />
+		
+		<!--If Include Unit Testing Example -->
+		<file src="as/TestRunner.as" dest="test-src/TestRunner.as" process="true"
+			if="${unitTestExamples}" />
+		<file src="as/TestClass.as" dest="test-src/tests/TestClass.as"
+			process="true" if="${unitTestExamples}" />
+	</contentCreation>
+</tns:projectTemplate>
