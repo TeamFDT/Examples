@@ -1,0 +1,105 @@
+<project name="iOS_Simulator_Debug">
+
+	<property name="ios.certificate" value="../certificates/test.p12" />
+	<property name="ios.cert.pass" value="test" />
+	<property name="ios.simulator.SDK" value="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk" />
+
+	<fdt.loadProjectProperties />
+
+	<target name="01. package for simulator">
+		<exec executable="${FDTProjectSdkPath}/bin/adt" failonerror="true" dir="../bin">
+			<arg value="-package" />
+			<arg value="-target" />
+			<arg value="ipa-debug-interpreter-simulator" />
+			<arg value="-storetype" />
+			<arg value="pkcs12" />
+			<arg value="-keystore" />
+			<arg value="${ios.certificate}" />
+			<arg value="-storepass" />
+			<arg value="${ios.cert.pass}" />
+			<arg value="AIR33features.ipa" />
+			<arg value="AIR33features-app.xml" />
+			<arg value="AIR33features.swf" />
+			<arg value="Default.png" />
+			<arg value="Default@2x.png" />
+			<arg value="Default~iphone.png" />
+			<arg value="Default@2x~iphone.png" />
+			<arg value="-e" />
+			<arg value="../icons/29.png" />
+			<arg value="AppIcons/29x29-29.png" />
+			<arg value="-e" />
+			<arg value="../icons/48.png" />
+			<arg value="AppIcons/48x48-48.png" />
+			<arg value="-e" />
+			<arg value="../icons/57.png" />
+			<arg value="AppIcons/57x57-57.png" />
+			<arg value="-e" />
+			<arg value="../icons/72.png" />
+			<arg value="AppIcons/72x72-72.png" />
+			<arg value="-e" />
+			<arg value="../icons/114.png" />
+			<arg value="AppIcons/114x114-114.png" />
+			<arg value="-e" />
+
+			<!-- New icon dimension here in AIR 3.3 -->
+			<arg value="../icons/144.png" />
+			<arg value="AppIcons/144x144-144.png" />
+
+			<arg value="-e" />
+			<arg value="../icons/512.png" />
+			<arg value="AppIcons/512x512-512.png" />
+			<arg value="-e" />
+			<arg value="../icons/1024.png" />
+			<arg value="AppIcons/1024x1024-1024.png" />
+			<arg value="-platformsdk" />
+			<arg value="${ios.simulator.SDK}" />
+		</exec>
+	</target>
+
+	<target name="02. uninstall app from simulator">
+		<exec executable="${FDTProjectSdkPath}/bin/adt">
+			<arg value="-uninstallApp" />
+			<arg value="-platform" />
+			<arg value="ios" />
+			<arg value="-platformsdk" />
+			<arg value="${ios.simulator.SDK}" />
+			<arg value="-device" />
+			<arg value="ios-simulator" />
+			<arg value="-appid" />
+			<arg value="com.powerflasher.SampleApp" />
+		</exec>
+	</target>
+
+	<target name="03. install app on simulator">
+		<exec executable="${FDTProjectSdkPath}/bin/adt">
+			<arg value="-installApp" />
+			<arg value="-platform" />
+			<arg value="ios" />
+			<arg value="-platformsdk" />
+			<arg value="${ios.simulator.SDK}" />
+			<arg value="-device" />
+			<arg value="ios-simulator" />
+			<arg value="-package" />
+			<arg value="../bin/AIR33Features.ipa" />
+		</exec>
+	</target>
+
+	<target name="04. start FDT debugger for simulator">
+		<fdt.startDebugger projectname="AIR33Features" switchperspectiveonbreakpoint="true" />
+	</target>
+
+	<target name="05. launch app on simulator">
+		<exec executable="${FDTProjectSdkPath}/bin/adt" failonerror="true" dir="../bin">
+			<arg value="-launchApp" />
+			<arg value="-platform" />
+			<arg value="ios" />
+			<arg value="-platformsdk" />
+			<arg value="${ios.simulator.SDK}" />
+			<arg value="-device" />
+			<arg value="ios-simulator" />
+			<arg value="-appid" />
+			<arg value="com.powerflasher.SampleApp" />
+		</exec>
+	</target>
+
+</project>
