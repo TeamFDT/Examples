@@ -1,1 +1,3 @@
-Make sure you merge the AIR 3.3 SDK before trying this demo.  Your SDK doesn't have to be called 'Flex 4.6.0 (Air 3.3)' but it should at least be Flex 4.5 and Air 3.3. 
+Make sure you merge the AIR 3.3 SDK before trying this demo.  
+
+Your SDK doesn't have to be called 'Flex 4.6.0 (Air 3.3)' but it should at least be Flex 4.5 and Air 3.3. 
