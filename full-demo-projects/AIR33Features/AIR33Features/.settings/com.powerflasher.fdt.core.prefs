@@ -1,4 +1,4 @@
-#Wed Jun 06 13:36:14 CEST 2012
+#Mon Jun 11 15:17:01 EDT 2012
 AnesChanged=1
 com.powerflasher.fdt.core.CompatiblePlayers=AIR_Debug_Launcher
 com.powerflasher.fdt.core.CompilerArguments=-static-link-runtime-shared-libraries\=true\n-target-player\={playerVersion}\n-library-path+\="{flexSDK}/frameworks/locale/en_US"\n-default-size\=550,400
@@ -14,7 +14,7 @@ com.powerflasher.fdt.core.PlatformType=MOBILE
 com.powerflasher.fdt.core.PlayerVersion=11.1
 com.powerflasher.fdt.core.ProjectTypeHint=AIR Mobile
 com.powerflasher.fdt.core.Runtime=AIR
-com.powerflasher.fdt.core.SdkName=Flex 4.6.0 (Air 3.3)
+com.powerflasher.fdt.core.SdkName=Flex 4.6.0
 com.powerflasher.fdt.core.mobile.AirDesktop.ACTIVE=false
 com.powerflasher.fdt.core.mobile.AirDesktop.AVAILABLE.EXTENSIONS=
 com.powerflasher.fdt.core.mobile.AirDesktop.DEPLOY.LOCATION=
@@ -74,11 +74,11 @@ com.powerflasher.fdt.core.mobile.iOS.ICON.PATH.57x57=
 com.powerflasher.fdt.core.mobile.iOS.ICON.PATH.72x72=
 com.powerflasher.fdt.core.mobile.iOS.MOBILE.DESCRIPTOR=bin/AIR33Features-app.xml
 com.powerflasher.fdt.core.mobile.iOS.PACKAGE.CONTENT=bin/AIR33Features-app.xml > AIR33Features-app.xml;bin/AIR33features.swf > AIR33features.swf;
-com.powerflasher.fdt.core.mobile.iOS.SIGNATURE.CERTIFICATE=certificates/private.p12
+com.powerflasher.fdt.core.mobile.iOS.SIGNATURE.CERTIFICATE=certificates/test.p12
 com.powerflasher.fdt.core.mobile.iOS.SIGNATURE.CERTIFICATE.RELEASE=
 com.powerflasher.fdt.core.mobile.iOS.SIGNATURE.PROVISIONING.FILE=certificates/SandboxPA.mobileprovision
 com.powerflasher.fdt.core.mobile.iOS.SIGNATURE.PROVISIONING.FILE.RELEASE=
-com.powerflasher.fdt.core.mobile.iOS.SIGNATURE.PWD=ffSXRjyzipPErtC+KKRS1Q\=\=
+com.powerflasher.fdt.core.mobile.iOS.SIGNATURE.PWD=VvfA7g6w4Ys\=
 com.powerflasher.fdt.core.mobile.iOS.SIGNATURE.PWD.RELEASE=HZsdm2UDN/4\=
 com.powerflasher.fdt.core.mobile.iOS.SIGNATURE.REMEMBER.PWD=true
 com.powerflasher.fdt.core.mobile.iOS.SIGNATURE.REMEMBER.PWD.RELEASE=false
