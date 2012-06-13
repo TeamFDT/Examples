@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:mx="library://ns.adobe.com/flex/mx" creationComplete="onCreationComplete(event)">
+
+
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+
+			import flash.display.StageDisplayState;
+
+			public function mymethod() : void
+			{
+				CONFIG::IS_AIR
+				{
+					var fullscreenMode : String = StageDisplayState.FULL_SCREEN_INTERACTIVE; 
+				}
+			}
+
+		]]>
+	</fx:Script>
+
+	<s:Button resize="onreSize(event)" click="onClick(event)"/>
+</s:Application>

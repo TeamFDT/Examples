@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<library name="MyCustomFontRange" output="bin" format="1">
+	<font id="font3" family="Chalkduster" style="2" cs="2" type="1" path="" ascff="false">
+		<include chars="ljksdfah"/>
+	</font>
+</library>

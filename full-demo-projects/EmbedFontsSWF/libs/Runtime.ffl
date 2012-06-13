@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<library name="MyFonts" output="bin" format="2" static="false">
+	<font id="Quicksand" family="Arial" style="0" cs="6" type="1" path="/Users/OSX/_dev/fdt/EmbedFontsSWF/assets/Quicksand.otf" ascff="false">
+		<include chars="sjkdf"/>
+	</font>
+	<font id="RondaSeven" family="Arial" style="0" cs="1,2,3,4" type="1" path="/Users/OSX/_dev/fdt/EmbedFontsSWF/assets/RondaSeven.ttf" ascff="false"/>
+</library>

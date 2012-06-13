@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<library name="MyFonts" output="assets" format="2" static="false">
+	<font id="Quicksand" family="American Typewriter" style="0" cs="3" type="1" path="Quicksand.otf" ascff="false">
+		<include chars="asdkfnlj"/>
+	</font>
+	<font id="RondaSeven" family="Arial" style="0" cs="1,2,3,4" type="1" path="RondaSeven.ttf" ascff="false"/>
+	<font id="AnotherFont" family="Arial" style="0" cs="7" type="1" path="" ascff="false">
+		<include chars="dfahsjkl"/>
+	</font>
+</library>
